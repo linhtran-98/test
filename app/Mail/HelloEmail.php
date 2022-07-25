@@ -11,14 +11,16 @@ class HelloEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
         //
+        $this->name = $name;
     }
 
     /**
@@ -28,7 +30,8 @@ class HelloEmail extends Mailable
      */
     public function build()
     {
-        return $this->from("linhtran20021998@gmail.com")->view('email-template');
+        return $this->from("linhtran20021998@gmail.com")->view('email-template')
+        ->attach(public_path('\uploads\waifu.jpg'));
         
     }
 }
