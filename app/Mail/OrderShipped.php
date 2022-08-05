@@ -7,22 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class HelloEmail extends Mailable
+class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject;
-    public $content;
-    public $table = '<h1 style = "color:red;">cac</h1>';
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject, $content)
+    public function __construct()
     {
-        $this->subject = $subject;
-        $this->content = $content;
+        //
     }
 
     /**
@@ -32,8 +28,8 @@ class HelloEmail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails')
-                    ->subject($this->subject);
-        
+        return $this->from('linhtran20021998@gmail.com')
+                    ->subject('Email mới nè tml')
+                    ->markdown('emails');
     }
 }

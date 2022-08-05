@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        \Eduardokum\LaravelMailAutoEmbed\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
